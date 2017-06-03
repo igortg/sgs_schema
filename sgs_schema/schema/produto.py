@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Sequence, SmallInteger
-from theves.schema.declarative_base import Base
+from sgs_schema.declarative_base import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Float
