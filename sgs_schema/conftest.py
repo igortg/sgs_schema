@@ -1,14 +1,14 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
-from theves.schema.declarative_base import Base
-from theves.util import create_db_url
+
+from sgs_schema.dbutil import create_db_url
+from sgs_schema.declarative_base import Base
 from fdb import fbcore
 
 
 @pytest.fixture(scope="session")
 def db_connection(tmpdir_factory):
-    print(tmpdir_factory.getbasetemp())
     test_db_filename = tmpdir_factory.mktemp('test_sgs_schema').join('test.fdb').strpath
     fbcore.create_database(database=str(test_db_filename), user="SYSDBA", password="masterkey", page_size=8192)
 
