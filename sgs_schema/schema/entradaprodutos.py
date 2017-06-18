@@ -57,8 +57,10 @@ class EntradaProdutoItens(Base):
     classname = Column(String(100))
 
 
-    def __init__(self, produto=None):
+    def __init__(self, produto=None, entrada_produto=None, quantidade=1):
         self.produto = produto
+        self.entrada_produto = entrada_produto
+        self.quantidade = quantidade
         self.id_valorat1 = -1
         self.id_valorat2 = -1
         self.createat = datetime.now()

@@ -21,8 +21,10 @@ def test_entrada_produto(db_session):
 
     entrada.produtos.append(produtos[0])
     entrada.produtos.append(produtos[1])
+    EntradaProdutoItens(produtos[2], entrada, 2)
     # Testa que o association_proxy está funcionando
-    assert entrada.produtos == [produtos[0], produtos[1]]
+    assert entrada.produtos == [produtos[0], produtos[1], produtos[2]]
+
 
     db_session.add(entrada)
     db_session.commit()

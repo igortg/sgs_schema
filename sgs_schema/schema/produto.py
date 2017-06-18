@@ -40,3 +40,4 @@ class CategoriaProduto(Base):
     id = Column(Integer, Sequence('id_manager'), primary_key=True)
     descricao = Column(String(50))
     tem_aprovacao = Column(Integer, default=0)
+    id_owner = Column(Integer, ForeignKey("CATPRODUTO.id"))
