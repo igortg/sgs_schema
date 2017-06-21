@@ -1,5 +1,5 @@
 import enum
-from sqlalchemy import Column, Integer, String, Sequence, Float
+from sqlalchemy import Column, Integer, String, Sequence, Float, Date
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey, Table
 from sqlalchemy.sql.sqltypes import SmallInteger
@@ -28,8 +28,12 @@ class OrdemServico(Base):
 
     id = Column(Integer, Sequence(""), primary_key=True)
     id_empresa = Column(nullable=False)
+    status = Column(SmallInteger, nullable=False, default=0)
+    data = Column(Date)
+    previsao = Column(Date)
+    conclusao = Column(Date)
     numero = Column(Integer)
-    status = Column(Integer)
+    historico = Column(String(100))
     id_cliente = Column(ForeignKey(Cliente.id), nullable=False)
     cliente = relationship(Cliente)
     contrato = Column("NUMERO_CONTRATO", String(30))
